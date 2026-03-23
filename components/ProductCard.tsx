@@ -41,7 +41,7 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
     >
       {/* Coming soon badge */}
       {!product.available && (
-        <span className="absolute right-4 top-4 rounded-full bg-dcyfr-primary-800 px-2 py-0.5 text-xs text-dcyfr-primary-400 border border-dcyfr-primary-700/60">
+        <span className="absolute right-4 top-4 rounded-full bg-dcyfr-primary-800 px-2 py-0.5 text-xs text-dcyfr-primary-300 border border-dcyfr-primary-700/60">
           Phase {product.phase}
         </span>
       )}

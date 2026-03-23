@@ -118,7 +118,7 @@ export default function HomePage() {
             <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <a
                 href="https://dcyfr.app"
-                className="rounded-lg bg-dcyfr-accent px-7 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2"
+                className="rounded-lg bg-dcyfr-accent-700 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-dcyfr-accent-600 focus-visible:outline-2"
               >
                 Browse Templates
               </a>
@@ -146,7 +146,7 @@ export default function HomePage() {
             ].map(({ value, label }) => (
               <div key={label} className="flex-1 min-w-[120px] px-6 py-4 text-center">
                 <p className="text-2xl font-bold text-white">{value}</p>
-                <p className="text-xs text-dcyfr-primary-400">{label}</p>
+                <p className="text-xs text-dcyfr-primary-300">{label}</p>
               </div>
             ))}
           </div>

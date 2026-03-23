@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
 };
 
 export default withSentryConfig(nextConfig, {
-  org: process.env.SENTRY_ORG ?? 'dcyfr',
+  org: process.env.SENTRY_ORG ?? 'dcyfr-labs',
   project: process.env.SENTRY_PROJECT ?? 'dcyfr-io',
   silent: !process.env.CI,
   widenClientFileUpload: true,

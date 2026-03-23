@@ -1,0 +1,33 @@
+{
+  "name": "dcyfr-io-portal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "dcyfr.io — The control center for the DCYFR product ecosystem",
+  "scripts": {
+    "dev": "next dev --port 3302",
+    "build": "next build",
+    "start": "next start --port 3302",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@dcyfr/design-system": "*",
+    "@sentry/nextjs": "^9",
+    "next": "^15.5.10",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^15",
+    "typescript": "^5",
+    "tailwindcss": "^3",
+    "postcss": "^8",
+    "autoprefixer": "^10"
+  }
+}

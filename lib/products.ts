@@ -53,7 +53,7 @@ export const PRODUCTS: Product[] = [
     tier: 'research',
     icon: '🔬',
     cta: 'Read Research',
-    available: false,
+    available: true,
     phase: 2,
   },
   {
@@ -67,7 +67,7 @@ export const PRODUCTS: Product[] = [
     tier: 'research',
     icon: '💡',
     cta: 'Explore Patterns',
-    available: false,
+    available: true,
     phase: 2,
   },
   {

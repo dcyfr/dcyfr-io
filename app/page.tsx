@@ -2,7 +2,40 @@ import type { Metadata } from 'next';
 import { ProductCard } from '@/components/ProductCard';
 import { WorkspaceHealth } from '@/components/WorkspaceHealth';
 import { UnifiedSearch } from '@/components/UnifiedSearch';
+import { BlogCarousel } from '@/components/BlogCarousel';
 import { PRODUCTS, TIER_ORDER, TIER_LABELS } from '@/lib/products';
+import type { RssFeedItem } from '@/lib/types';
+
+// ISR: revalidate blog feed every hour
+export const revalidate = 3600;
+
+async function fetchBlogFeed(): Promise<RssFeedItem[]> {
+  try {
+    const res = await fetch('https://dcyfr.tech/rss.xml', {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return [];
+    const xml = await res.text();
+    const items: RssFeedItem[] = [];
+    const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+    let itemMatch: RegExpExecArray | null;
+    while ((itemMatch = itemRegex.exec(xml)) !== null) {
+      const content = itemMatch[1];
+      const get = (tag: string) =>
+        new RegExp(String.raw`<${tag}>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/${tag}>`).exec(content)?.[1]?.trim() ?? '';
+      items.push({
+        title: get('title'),
+        link: get('link'),
+        description: get('description'),
+        pubDate: get('pubDate'),
+        category: get('category'),
+      });
+    }
+    return items.slice(0, 3);
+  } catch {
+    return [];
+  }
+}
 
 export const metadata: Metadata = {
   title: 'DCYFR — The Control Center for AI-Powered Development',
@@ -26,6 +59,7 @@ function OrganizationJsonLd() {
             'https://github.com/dcyfr',
             'https://dcyfr.app',
             'https://dcyfr.tech',
+            'https://dcyfr.codes',
           ],
           contactPoint: {
             '@type': 'ContactPoint',
@@ -38,7 +72,9 @@ function OrganizationJsonLd() {
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const blogItems = await fetchBlogFeed();
+
   // Group products by tier in defined order
   const byTier = TIER_ORDER.reduce<Record<string, typeof PRODUCTS>>((acc, tier) => {
     const products = PRODUCTS.filter((p) => p.tier === tier);
@@ -62,11 +98,14 @@ export default function HomePage() {
               <a href="#products" className="text-dcyfr-primary-300 hover:text-white transition-colors">
                 Products
               </a>
-              <a
-                href="https://dcyfr.app"
-                className="text-dcyfr-primary-300 hover:text-white transition-colors"
-              >
+              <a href="https://dcyfr.app" className="text-dcyfr-primary-300 hover:text-white transition-colors">
                 Templates
+              </a>
+              <a href="https://dcyfr.tech" target="_blank" rel="noopener noreferrer" className="text-dcyfr-primary-300 hover:text-white transition-colors">
+                Research
+              </a>
+              <a href="https://dcyfr.codes" target="_blank" rel="noopener noreferrer" className="text-dcyfr-primary-300 hover:text-white transition-colors">
+                Codes
               </a>
               <a
                 href="https://github.com/dcyfr"
@@ -100,7 +139,7 @@ export default function HomePage() {
           <div className="relative mx-auto max-w-4xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-dcyfr-accent/20 bg-dcyfr-accent/10 px-4 py-1.5 text-xs font-semibold text-dcyfr-accent">
               <span className="h-1.5 w-1.5 rounded-full bg-dcyfr-accent animate-pulse" aria-hidden="true" />
-              Phase 1 — Now Live
+              Phase 3 — In Progress
             </div>
             <h1
               id="hero-heading"
@@ -179,6 +218,9 @@ export default function HomePage() {
           </div>
         </main>
 
+        {/* Blog carousel — ISR from dcyfr.tech RSS */}
+        <BlogCarousel items={blogItems} />
+
         {/* Footer */}
         <footer className="border-t border-dcyfr-primary-800/60 px-4 py-10 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
@@ -198,8 +240,10 @@ export default function HomePage() {
                   </p>
                   <ul className="space-y-1.5">
                     <li><a href="https://dcyfr.app" className="text-dcyfr-primary-300 hover:text-white transition-colors">Templates</a></li>
-                    <li><span className="text-dcyfr-primary-300">Research (Q3)</span></li>
-                    <li><span className="text-dcyfr-primary-300">Agents (Q4)</span></li>
+                    <li><a href="https://dcyfr.tech" target="_blank" rel="noopener noreferrer" className="text-dcyfr-primary-300 hover:text-white transition-colors">Research</a></li>
+                    <li><a href="https://dcyfr.codes" target="_blank" rel="noopener noreferrer" className="text-dcyfr-primary-300 hover:text-white transition-colors">Codes</a></li>
+                    <li><span className="text-dcyfr-primary-500">Agents (Q4 2026)</span></li>
+                    <li><span className="text-dcyfr-primary-500">Infrastructure (Q4 2026)</span></li>
                   </ul>
                 </div>
                 <div>

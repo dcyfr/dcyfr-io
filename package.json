@@ -11,7 +11,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@dcyfr/design-system": "*",
     "@sentry/nextjs": "^9",
     "next": "^15.5.10",
     "react": "^19.0.0",

@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import dcyfrPreset from '@dcyfr/design-system/tailwind';
+import dcyfrPreset from './tailwind.preset';
 
 const config: Config = {
   presets: [dcyfrPreset],

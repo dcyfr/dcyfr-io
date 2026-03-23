@@ -10,7 +10,7 @@ export default withSentryConfig(nextConfig, {
   project: process.env.SENTRY_PROJECT ?? 'dcyfr-io',
   silent: !process.env.CI,
   widenClientFileUpload: true,
-  hideSourceMaps: true,
+  sourcemaps: { disable: false, deleteSourcemapsAfterUpload: true },
   disableLogger: true,
   tunnelRoute: '/monitoring',
   automaticVercelMonitors: true,

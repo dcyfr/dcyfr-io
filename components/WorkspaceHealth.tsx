@@ -32,8 +32,8 @@ async function fetchGatewayHealth(): Promise<GatewayHealth> {
 const statusConfig: Record<HealthStatus, { label: string; dotClass: string; textClass: string }> = {
   healthy:     { label: 'Workspace healthy',     dotClass: 'bg-green-400',         textClass: 'text-green-400' },
   degraded:    { label: 'Workspace degraded',    dotClass: 'bg-yellow-400',        textClass: 'text-yellow-400' },
-  unavailable: { label: 'Gateway unavailable',   dotClass: 'bg-dcyfr-primary-500', textClass: 'text-dcyfr-primary-400' },
-  loading:     { label: 'Checking status...',    dotClass: 'bg-dcyfr-primary-600 animate-pulse', textClass: 'text-dcyfr-primary-400' },
+  unavailable: { label: 'Gateway unavailable',   dotClass: 'bg-dcyfr-primary-400', textClass: 'text-dcyfr-primary-300' },
+  loading:     { label: 'Checking status...',    dotClass: 'bg-dcyfr-primary-400 animate-pulse', textClass: 'text-dcyfr-primary-300' },
 };
 
 export function WorkspaceHealth() {
@@ -55,7 +55,7 @@ export function WorkspaceHealth() {
         {config.label}
       </span>
       {health.capabilities.length > 0 && (
-        <span className="text-xs text-dcyfr-primary-500">
+        <span className="text-xs text-dcyfr-primary-300">
           · {health.capabilities.length} capabilities
         </span>
       )}

@@ -187,23 +187,23 @@ export default function HomePage() {
                 <p className="text-lg font-bold text-white">
                   dcyfr<span className="text-dcyfr-accent">.io</span>
                 </p>
-                <p className="mt-1 text-sm text-dcyfr-primary-400">
+                <p className="mt-1 text-sm text-dcyfr-primary-300">
                   The control center for AI-powered development
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-x-16 gap-y-2 text-sm sm:grid-cols-3">
                 <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dcyfr-primary-500">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dcyfr-primary-300">
                     Products
                   </p>
                   <ul className="space-y-1.5">
                     <li><a href="https://dcyfr.app" className="text-dcyfr-primary-300 hover:text-white transition-colors">Templates</a></li>
-                    <li><span className="text-dcyfr-primary-600">Research (Q3)</span></li>
-                    <li><span className="text-dcyfr-primary-600">Agents (Q4)</span></li>
+                    <li><span className="text-dcyfr-primary-300">Research (Q3)</span></li>
+                    <li><span className="text-dcyfr-primary-300">Agents (Q4)</span></li>
                   </ul>
                 </div>
                 <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dcyfr-primary-500">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dcyfr-primary-300">
                     Community
                   </p>
                   <ul className="space-y-1.5">
@@ -220,7 +220,7 @@ export default function HomePage() {
                   </ul>
                 </div>
                 <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dcyfr-primary-500">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dcyfr-primary-300">
                     Legal
                   </p>
                   <ul className="space-y-1.5">
@@ -231,7 +231,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 border-t border-dcyfr-primary-800/60 pt-6 text-xs text-dcyfr-primary-500">
+            <div className="mt-8 border-t border-dcyfr-primary-800/60 pt-6 text-xs text-dcyfr-primary-300">
               <p>© 2026 DCYFR. All rights reserved.</p>
             </div>
           </div>

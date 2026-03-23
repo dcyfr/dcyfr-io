@@ -35,7 +35,7 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
         'transition-all duration-200',
         product.available
           ? [borderColor, 'hover:bg-dcyfr-primary-800/70 hover:shadow-lg']
-          : 'border-dcyfr-primary-700/40 opacity-60',
+          : 'border-dcyfr-primary-700/40',
         featured && 'ring-1 ring-dcyfr-accent/20'
       )}
     >
@@ -78,7 +78,7 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
           </svg>
         </span>
       ) : (
-        <span className="text-sm text-dcyfr-primary-500">Coming {product.phase === 2 ? 'Q3 2026' : product.phase === 3 ? 'Q4 2026' : '2027'}</span>
+        <span className="text-sm text-dcyfr-primary-300">Coming {product.phase === 2 ? 'Q3 2026' : product.phase === 3 ? 'Q4 2026' : '2027'}</span>
       )}
     </div>
   );

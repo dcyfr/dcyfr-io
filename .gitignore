@@ -17,6 +17,11 @@ out/
 # Vercel
 .vercel
 
+# Playwright artifacts (keep e2e/snapshots.spec.ts-snapshots/ — those are baselines)
+test-results/
+playwright-report/
+playwright/.cache/
+
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts

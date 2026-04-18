@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from '@/components/theme-provider';
+import { PageShell, SiteNav, SiteFooter } from '@/components/chrome';
 import './globals.css';
 
 const inter = Inter({
@@ -46,6 +47,32 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const DcyfrIoLogo = (
+  <span className="font-semibold tracking-tight">
+    dcyfr<span className="text-accent">.io</span>
+  </span>
+);
+
+const FOOTER_COLUMNS = [
+  {
+    title: 'Ecosystem',
+    links: [
+      { href: 'https://dcyfr.tech', label: 'Research', external: true },
+      { href: 'https://dcyfr.codes', label: 'Codes', external: true },
+      { href: 'https://dcyfr.work', label: 'Work', external: true },
+      { href: 'https://dcyfr.app', label: 'Apps', external: true },
+      { href: 'https://dcyfr.build', label: 'Build', external: true },
+    ],
+  },
+  {
+    title: 'About',
+    links: [
+      { href: 'https://dcyfr.ai', label: 'Drew', external: true },
+      { href: 'https://github.com/dcyfr', label: 'GitHub', external: true },
+    ],
+  },
+];
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
@@ -55,7 +82,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     >
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <PageShell
+            nav={
+              <SiteNav logo={DcyfrIoLogo} links={[]} variant="minimal" />
+            }
+            footer={
+              <SiteFooter
+                brand={{
+                  name: 'dcyfr.io',
+                  tagline: "Drew's portal — one link away from everything DCYFR.",
+                }}
+                columns={FOOTER_COLUMNS}
+              />
+            }
+            padding="none"
+            maxWidth="full"
+          >
+            {children}
+          </PageShell>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

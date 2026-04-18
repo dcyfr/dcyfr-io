@@ -48,27 +48,43 @@ export const metadata: Metadata = {
 };
 
 const DcyfrIoLogo = (
-  <span className="font-semibold tracking-tight">
+  <span className="text-lg font-bold tracking-tight">
     dcyfr<span className="text-accent">.io</span>
   </span>
 );
 
+const NAV_LINKS = [
+  { href: '/#products', label: 'Products' },
+  { href: 'https://dcyfr.app', label: 'Templates', external: true },
+  { href: 'https://dcyfr.tech', label: 'Research', external: true },
+  { href: 'https://dcyfr.codes', label: 'Codes', external: true },
+  { href: 'https://github.com/dcyfr', label: 'GitHub', external: true },
+];
+
 const FOOTER_COLUMNS = [
   {
-    title: 'Ecosystem',
+    title: 'Products',
     links: [
+      { href: 'https://dcyfr.app', label: 'Templates', external: true },
       { href: 'https://dcyfr.tech', label: 'Research', external: true },
       { href: 'https://dcyfr.codes', label: 'Codes', external: true },
       { href: 'https://dcyfr.work', label: 'Work', external: true },
-      { href: 'https://dcyfr.app', label: 'Apps', external: true },
       { href: 'https://dcyfr.build', label: 'Build', external: true },
     ],
   },
   {
-    title: 'About',
+    title: 'Community',
     links: [
-      { href: 'https://dcyfr.ai', label: 'Drew', external: true },
       { href: 'https://github.com/dcyfr', label: 'GitHub', external: true },
+      { href: 'mailto:hello@dcyfr.dev', label: 'Contact' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { href: '/trademark', label: 'Trademark' },
+      { href: '/privacy', label: 'Privacy' },
+      { href: '/terms', label: 'Terms' },
     ],
   },
 ];
@@ -83,16 +99,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <PageShell
-            nav={
-              <SiteNav logo={DcyfrIoLogo} links={[]} variant="minimal" />
-            }
+            nav={<SiteNav logo={DcyfrIoLogo} links={NAV_LINKS} />}
             footer={
               <SiteFooter
                 brand={{
                   name: 'dcyfr.io',
-                  tagline: "Drew's portal — one link away from everything DCYFR.",
+                  tagline: 'The control center for AI-powered development',
                 }}
                 columns={FOOTER_COLUMNS}
+                copyright="© 2026 DCYFR. All rights reserved."
               />
             }
             padding="none"

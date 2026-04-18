@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { ProductCard } from '@/components/ProductCard';
-import { WorkspaceHealth } from '@/components/WorkspaceHealth';
 import { UnifiedSearch } from '@/components/UnifiedSearch';
 import { BlogCarousel } from '@/components/BlogCarousel';
 import { PRODUCTS, TIER_ORDER, TIER_LABELS } from '@/lib/products';
@@ -85,41 +84,7 @@ export default async function HomePage() {
   return (
     <>
       <OrganizationJsonLd />
-      <div className="min-h-screen">
-        {/* Nav */}
-        <header className="sticky top-0 z-10 border-b border-dcyfr-primary-800/60 bg-dcyfr-primary-950/95 backdrop-blur-sm">
-          <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-            <a href="/" className="flex items-center gap-2">
-              <span className="text-lg font-bold text-white">
-                dcyfr<span className="text-dcyfr-accent">.io</span>
-              </span>
-            </a>
-            <nav className="flex items-center gap-5 text-sm" aria-label="Main navigation">
-              <a href="#products" className="text-dcyfr-primary-300 hover:text-white transition-colors">
-                Products
-              </a>
-              <a href="https://dcyfr.app" className="text-dcyfr-primary-300 hover:text-white transition-colors">
-                Templates
-              </a>
-              <a href="https://dcyfr.tech" target="_blank" rel="noopener noreferrer" className="text-dcyfr-primary-300 hover:text-white transition-colors">
-                Research
-              </a>
-              <a href="https://dcyfr.codes" target="_blank" rel="noopener noreferrer" className="text-dcyfr-primary-300 hover:text-white transition-colors">
-                Codes
-              </a>
-              <a
-                href="https://github.com/dcyfr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-dcyfr-primary-300 hover:text-white transition-colors"
-              >
-                GitHub
-              </a>
-              <WorkspaceHealth />
-            </nav>
-          </div>
-        </header>
-
+      <div>
         {/* Hero */}
         <section
           className="relative overflow-hidden border-b border-dcyfr-primary-800/40 bg-gradient-to-b from-dcyfr-primary-950 to-dcyfr-primary-900/60 px-4 py-20 sm:px-6 lg:px-8"
@@ -220,66 +185,6 @@ export default async function HomePage() {
 
         {/* Blog carousel — ISR from dcyfr.tech RSS */}
         <BlogCarousel items={blogItems} />
-
-        {/* Footer */}
-        <footer className="border-t border-dcyfr-primary-800/60 px-4 py-10 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
-              <div>
-                <p className="text-lg font-bold text-white">
-                  dcyfr<span className="text-dcyfr-accent">.io</span>
-                </p>
-                <p className="mt-1 text-sm text-dcyfr-primary-300">
-                  The control center for AI-powered development
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-x-16 gap-y-2 text-sm sm:grid-cols-3">
-                <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dcyfr-primary-300">
-                    Products
-                  </p>
-                  <ul className="space-y-1.5">
-                    <li><a href="https://dcyfr.app" className="text-dcyfr-primary-300 hover:text-white transition-colors">Templates</a></li>
-                    <li><a href="https://dcyfr.tech" target="_blank" rel="noopener noreferrer" className="text-dcyfr-primary-300 hover:text-white transition-colors">Research</a></li>
-                    <li><a href="https://dcyfr.codes" target="_blank" rel="noopener noreferrer" className="text-dcyfr-primary-300 hover:text-white transition-colors">Codes</a></li>
-                    <li><span className="text-dcyfr-primary-500">Agents (Q4 2026)</span></li>
-                    <li><span className="text-dcyfr-primary-500">Infrastructure (Q4 2026)</span></li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dcyfr-primary-300">
-                    Community
-                  </p>
-                  <ul className="space-y-1.5">
-                    <li>
-                      <a href="https://github.com/dcyfr" target="_blank" rel="noopener noreferrer" className="text-dcyfr-primary-300 hover:text-white transition-colors">
-                        GitHub
-                      </a>
-                    </li>
-                    <li>
-                      <a href="mailto:hello@dcyfr.dev" className="text-dcyfr-primary-300 hover:text-white transition-colors">
-                        Contact
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-dcyfr-primary-300">
-                    Legal
-                  </p>
-                  <ul className="space-y-1.5">
-                    <li><a href="/trademark" className="text-dcyfr-primary-300 hover:text-white transition-colors">Trademark</a></li>
-                    <li><a href="/privacy" className="text-dcyfr-primary-300 hover:text-white transition-colors">Privacy</a></li>
-                    <li><a href="/terms" className="text-dcyfr-primary-300 hover:text-white transition-colors">Terms</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 border-t border-dcyfr-primary-800/60 pt-6 text-xs text-dcyfr-primary-300">
-              <p>© 2026 DCYFR. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
       </div>
     </>
   );

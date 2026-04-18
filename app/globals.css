@@ -2,6 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Phase 1 semantic CSS variable set per
+ * openspec/changes/dcyfr-skeleton-sites-scaffolding/spec.md §1.
+ *
+ * Additive to the legacy tailwind.preset.ts palette — existing dcyfr-primary-*
+ * classes keep working through the preset while @dcyfr-labs registry primitives
+ * resolve `bg-background`, `text-foreground`, etc. against these vars via
+ * tailwind.config.ts colors extension.
+ *
+ * The .theme-dcyfr-io identity override block below is STAGED — not yet
+ * applied to <html>. Full wiring (activate theme class, add next-themes
+ * provider, retire legacy preset) lands as a follow-up.
+ */
+
+@layer base {
+  :root {
+    /* Core shadcn semantics */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+
+    /* DCYFR-specific semantics */
+    --secure: 217 91% 60%;
+    --secure-foreground: 210 40% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 142 30% 5%;
+    --warning: 43 96% 56%;
+    --warning-foreground: 43 30% 10%;
+
+    /* Motion */
+    --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* DCYFR semantics (dark) */
+    --secure: 217 91% 65%;
+    --secure-foreground: 217 30% 10%;
+    --success: 142 71% 50%;
+    --success-foreground: 142 30% 5%;
+    --warning: 43 96% 60%;
+    --warning-foreground: 43 30% 10%;
+  }
+
+  /*
+   * Identity layer for dcyfr.io — portal / link hub, minimal.
+   * Staged: apply via <html className="theme-dcyfr-io"> once Phase 2 wiring lands.
+   * Source of truth: docs/dcyfr-workspace/sites/dcyfr-io.md
+   */
+  .theme-dcyfr-io {
+    /* Inherit default slate primary; differentiate via reduced chrome + subdued accent */
+    --radius: 0.375rem;
+    --accent: 215 20% 65%;
+    --accent-foreground: 215 28% 17%;
+  }
+}
+
+/*
+ * Legacy portal body styles — preserved from initial v3 preset layout until
+ * Phase 2/3 migration completes. New @dcyfr-labs primitives read semantic
+ * vars above; existing pages read the dcyfr-* palette from tailwind.preset.ts.
+ */
 body {
   font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, sans-serif);
   background-color: theme('colors.dcyfr.primary.950');
@@ -15,4 +113,14 @@ html {
 :focus-visible {
   outline: 2px solid theme('colors.dcyfr.accent.DEFAULT');
   outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ProductCard } from '@/components/ProductCard';
 import { UnifiedSearch } from '@/components/UnifiedSearch';
 import { BlogCarousel } from '@/components/BlogCarousel';
+import { DcyfrButton } from '@/components/ui/dcyfr-button';
+import { DcyfrBadge } from '@/components/ui/dcyfr-badge';
 import { PRODUCTS, TIER_ORDER, TIER_LABELS } from '@/lib/products';
 import type { RssFeedItem } from '@/lib/types';
 
@@ -102,10 +105,17 @@ export default async function HomePage() {
           />
 
           <div className="relative mx-auto max-w-4xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-dcyfr-accent/20 bg-dcyfr-accent/10 px-4 py-1.5 text-xs font-semibold text-dcyfr-accent">
-              <span className="h-1.5 w-1.5 rounded-full bg-dcyfr-accent animate-pulse" aria-hidden="true" />
+            <DcyfrBadge
+              variant="secure"
+              size="md"
+              className="mb-4 rounded-full border-dcyfr-accent/20 bg-dcyfr-accent/10 text-dcyfr-accent"
+            >
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-dcyfr-accent animate-pulse"
+                aria-hidden="true"
+              />
               Phase 3 — In Progress
-            </div>
+            </DcyfrBadge>
             <h1
               id="hero-heading"
               className="mb-5 text-5xl font-bold tracking-tight text-white sm:text-6xl"
@@ -118,20 +128,14 @@ export default async function HomePage() {
               you need to ship AI-powered applications faster.
             </p>
 
-            {/* Primary CTAs */}
+            {/* Primary CTAs — @dcyfr-labs/dcyfr-button */}
             <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <a
-                href="https://dcyfr.app"
-                className="rounded-lg bg-dcyfr-accent-700 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-dcyfr-accent-600 focus-visible:outline-2"
-              >
-                Browse Templates
-              </a>
-              <a
-                href="#products"
-                className="rounded-lg border border-dcyfr-primary-600/60 px-7 py-3 text-sm font-semibold text-dcyfr-primary-200 transition-colors hover:border-dcyfr-accent/40 hover:text-white"
-              >
-                Explore Products
-              </a>
+              <DcyfrButton asChild variant="brand" size="lg">
+                <Link href="https://dcyfr.app">Browse Templates</Link>
+              </DcyfrButton>
+              <DcyfrButton asChild variant="ghostly" size="lg">
+                <Link href="#products">Explore Products</Link>
+              </DcyfrButton>
             </div>
 
             {/* Unified search */}
@@ -148,9 +152,18 @@ export default async function HomePage() {
               { value: '32', label: 'Workspace Agents' },
               { value: '7', label: 'TLDs' },
             ].map(({ value, label }) => (
-              <div key={label} className="flex-1 min-w-[120px] px-6 py-4 text-center">
+              <div
+                key={label}
+                className="flex-1 min-w-[120px] px-6 py-4 text-center"
+              >
                 <p className="text-2xl font-bold text-white">{value}</p>
-                <p className="text-xs text-dcyfr-primary-300">{label}</p>
+                <DcyfrBadge
+                  variant="info"
+                  size="sm"
+                  className="mt-1 border-0 bg-transparent text-dcyfr-primary-300"
+                >
+                  {label}
+                </DcyfrBadge>
               </div>
             ))}
           </div>

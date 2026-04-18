@@ -31,11 +31,14 @@ for (const route of ROUTES) {
     test(`${route.name} @ ${vp.name}`, async ({ page }) => {
       await page.emulateMedia({ reducedMotion: 'reduce' });
       await page.setViewportSize({ width: vp.width, height: vp.height });
-      await page.goto(route.path);
-      await page.waitForLoadState('networkidle');
 
-      // Let initial layout + font-swap settle before snapshot
-      await page.waitForTimeout(500);
+      // `domcontentloaded` instead of `load` — Vercel analytics + external RSS
+      // fetches never settle into `networkidle` on this page. We care about
+      // rendered markup, not background telemetry beacons.
+      await page.goto(route.path, { waitUntil: 'domcontentloaded' });
+
+      // Let hydration + font-swap + layout settle before snapshot
+      await page.waitForTimeout(1500);
 
       await expect(page).toHaveScreenshot(`${route.name}-${vp.name}.png`, {
         fullPage: true,

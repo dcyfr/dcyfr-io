@@ -6,6 +6,16 @@
 - `snapshots.spec.ts` — visual regression baseline per [`openspec/changes/dcyfr-skeleton-sites-scaffolding/spec.md#51-screenshot-baseline`](../../openspec/changes/dcyfr-skeleton-sites-scaffolding/spec.md) and [`docs/dcyfr-workspace/polish-loop.md`](../../docs/dcyfr-workspace/polish-loop.md).
 - `snapshots/` — committed baseline PNGs (generated on first run — see below).
 
+## One-time setup
+
+Playwright browsers aren't installed by `npm install` — they need a separate download:
+
+```bash
+npx playwright install chromium
+```
+
+We only use chromium for snapshots (cross-browser visual diffs produce pixel noise that isn't signal — identity regressions are the same across browsers, and chromium is canonical for Vercel's runtime).
+
 ## First-time baseline capture
 
 Baselines don't exist until someone runs:
@@ -18,7 +28,7 @@ npm run test:snapshots:update
 BASE_URL=https://dcyfr-io-<hash>.vercel.app npm run test:snapshots:update
 ```
 
-This generates `e2e/snapshots/snapshots.spec.ts-snapshots/*.png`. Commit the PNGs.
+This generates `e2e/snapshots.spec.ts-snapshots/*.png`. Commit the PNGs.
 
 ## Regular runs
 

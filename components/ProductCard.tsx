@@ -49,7 +49,7 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
         product.available
           ? [borderColor, 'hover:bg-muted/70 hover:shadow-lg']
           : 'border-input/40',
-        featured && 'ring-1 ring-dcyfr-accent/20'
+        featured && 'ring-1 ring-secure/20'
       )}
     >
       {/* Coming soon badge */}
@@ -70,7 +70,7 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
       </div>
 
       {/* Name + positioning */}
-      <h3 className="mb-1 text-lg font-semibold text-white">{product.name}</h3>
+      <h3 className="mb-1 text-lg font-semibold text-foreground">{product.name}</h3>
       <p className={clsx('mb-2 text-xs font-medium', accentColor)}>{product.positioning}</p>
       <p className="mb-5 flex-1 text-sm text-muted-foreground leading-relaxed">
         {product.description}
@@ -101,7 +101,7 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
   }
 
   return (
-    <a href={product.url} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dcyfr-accent rounded-xl">
+    <a href={product.url} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secure rounded-xl">
       {cardContent}
     </a>
   );

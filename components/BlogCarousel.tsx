@@ -19,12 +19,12 @@ export function BlogCarousel({ items }: Readonly<BlogCarouselProps>) {
     <section className="border-t border-border/40 px-4 py-10 sm:px-6 lg:px-8" aria-labelledby="blog-heading">
       <div className="mx-auto max-w-7xl">
         <div className="mb-5 flex items-center justify-between">
-          <h2 id="blog-heading" className="text-xs font-semibold uppercase tracking-widest text-dcyfr-accent">
+          <h2 id="blog-heading" className="text-xs font-semibold uppercase tracking-widest text-secure">
             From the Research Hub
           </h2>
           <a
             href="https://dcyfr.tech"
-            className="text-xs text-muted-foreground hover:text-white transition-colors"
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -38,12 +38,12 @@ export function BlogCarousel({ items }: Readonly<BlogCarouselProps>) {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-xl border border-input/60 bg-card/60 p-4 hover:border-dcyfr-accent/40 transition-colors"
+              className="group rounded-xl border border-input/60 bg-card/60 p-4 hover:border-secure/40 transition-colors"
             >
               {item.category && (
                 <span className="mb-2 block text-xs font-medium text-accent">{item.category}</span>
               )}
-              <h3 className="text-sm font-semibold text-white group-hover:text-accent transition-colors leading-snug mb-2">
+              <h3 className="text-sm font-semibold text-foreground group-hover:text-accent-foreground transition-colors leading-snug mb-2">
                 {item.title}
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mb-3">{item.description}</p>

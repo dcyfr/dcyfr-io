@@ -74,8 +74,8 @@ export function UnifiedSearch() {
             placeholder="Search templates, agents, code patterns, infrastructure..."
             className={clsx(
               'w-full rounded-xl border border-input/60 bg-card/60',
-              'pl-12 pr-4 py-3.5 text-white placeholder:text-muted-foreground',
-              'focus:border-dcyfr-accent/60 focus:outline-none focus:ring-1 focus:ring-dcyfr-accent/40',
+              'pl-12 pr-4 py-3.5 text-foreground placeholder:text-muted-foreground',
+              'focus:border-secure/60 focus:outline-none focus:ring-1 focus:ring-secure/40',
               'text-sm'
             )}
             aria-label="Search across DCYFR products"
@@ -103,7 +103,7 @@ export function UnifiedSearch() {
                 onClick={() => setSuggestions([])}
               >
                 <div>
-                  <p className="text-sm font-medium text-white">&ldquo;{s.label}&rdquo;</p>
+                  <p className="text-sm font-medium text-foreground">&ldquo;{s.label}&rdquo;</p>
                   <p className="text-xs text-muted-foreground">{s.description}</p>
                 </div>
                 <span className="text-xs font-mono text-accent shrink-0 ml-4">

@@ -108,20 +108,20 @@ export default async function HomePage() {
             <DcyfrBadge
               variant="secure"
               size="md"
-              className="mb-4 rounded-full border-dcyfr-accent/20 bg-dcyfr-accent/10 text-dcyfr-accent"
+              className="mb-4 rounded-full border-secure/20 bg-secure/10 text-secure"
             >
               <span
-                className="h-1.5 w-1.5 rounded-full bg-dcyfr-accent animate-pulse"
+                className="h-1.5 w-1.5 rounded-full bg-secure animate-pulse"
                 aria-hidden="true"
               />
               Phase 3 — In Progress
             </DcyfrBadge>
             <h1
               id="hero-heading"
-              className="mb-5 text-5xl font-bold tracking-tight text-white sm:text-6xl"
+              className="mb-5 text-5xl font-bold tracking-tight text-foreground sm:text-6xl"
             >
               The control center for{' '}
-              <span className="text-dcyfr-accent">AI-powered</span> development
+              <span className="text-secure">AI-powered</span> development
             </h1>
             <p className="mb-8 text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               DCYFR builds the frameworks, templates, agents, and infrastructure
@@ -156,7 +156,7 @@ export default async function HomePage() {
                 key={label}
                 className="flex-1 min-w-[120px] px-6 py-4 text-center"
               >
-                <p className="text-2xl font-bold text-white">{value}</p>
+                <p className="text-2xl font-bold text-foreground">{value}</p>
                 <DcyfrBadge
                   variant="info"
                   size="sm"
@@ -176,7 +176,7 @@ export default async function HomePage() {
               <section key={tier} aria-labelledby={`section-${tier}`}>
                 <h2
                   id={`section-${tier}`}
-                  className="mb-6 text-xs font-semibold uppercase tracking-widest text-dcyfr-accent"
+                  className="mb-6 text-xs font-semibold uppercase tracking-widest text-secure"
                 >
                   {TIER_LABELS[tier as keyof typeof TIER_LABELS]}
                 </h2>

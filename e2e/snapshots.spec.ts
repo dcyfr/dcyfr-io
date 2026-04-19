@@ -29,7 +29,11 @@ const ROUTES = [
 for (const route of ROUTES) {
   for (const vp of VIEWPORTS) {
     test(`${route.name} @ ${vp.name}`, async ({ page }) => {
-      await page.emulateMedia({ reducedMotion: 'reduce' });
+      // `colorScheme: 'dark'` locks baselines to dark-mode render so the
+      // palette-class migration (2026-04-18) stays a pure visual refactor.
+      // Light-mode capture is a follow-up (dcyfr-palette-class-migration
+      // spec §2.2 notes theme-responsive activation as a separate concern).
+      await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'dark' });
       await page.setViewportSize({ width: vp.width, height: vp.height });
 
       // `domcontentloaded` instead of `load` — Vercel analytics + external RSS

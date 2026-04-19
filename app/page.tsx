@@ -90,7 +90,7 @@ export default async function HomePage() {
       <div>
         {/* Hero */}
         <section
-          className="relative overflow-hidden border-b border-dcyfr-primary-800/40 bg-gradient-to-b from-dcyfr-primary-950 to-dcyfr-primary-900/60 px-4 py-20 sm:px-6 lg:px-8"
+          className="relative overflow-hidden border-b border-border/40 bg-gradient-to-b from-background to-card/60 px-4 py-20 sm:px-6 lg:px-8"
           aria-labelledby="hero-heading"
         >
           {/* Background grid pattern */}
@@ -123,7 +123,7 @@ export default async function HomePage() {
               The control center for{' '}
               <span className="text-dcyfr-accent">AI-powered</span> development
             </h1>
-            <p className="mb-8 text-xl text-dcyfr-primary-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="mb-8 text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               DCYFR builds the frameworks, templates, agents, and infrastructure
               you need to ship AI-powered applications faster.
             </p>
@@ -144,8 +144,8 @@ export default async function HomePage() {
         </section>
 
         {/* Stats */}
-        <div className="border-b border-dcyfr-primary-800/40 bg-dcyfr-primary-900/40">
-          <div className="mx-auto flex max-w-7xl flex-wrap divide-x divide-dcyfr-primary-800/60 px-4 sm:px-6 lg:px-8">
+        <div className="border-b border-border/40 bg-card/40">
+          <div className="mx-auto flex max-w-7xl flex-wrap divide-x divide-border/60 px-4 sm:px-6 lg:px-8">
             {[
               { value: '26+', label: 'Packages' },
               { value: '8', label: 'Starter Templates' },
@@ -160,7 +160,7 @@ export default async function HomePage() {
                 <DcyfrBadge
                   variant="info"
                   size="sm"
-                  className="mt-1 border-0 bg-transparent text-dcyfr-primary-300"
+                  className="mt-1 border-0 bg-transparent text-muted-foreground"
                 >
                   {label}
                 </DcyfrBadge>

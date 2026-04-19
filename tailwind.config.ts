@@ -1,22 +1,20 @@
 import type { Config } from 'tailwindcss';
-import dcyfrPreset from './tailwind.preset';
 
 /**
  * dcyfr.io Tailwind v3 config.
  *
- * Composes the legacy `./tailwind.preset.ts` (dcyfr-* palette used by existing
- * pages) with the semantic-var bridge below, which maps CSS variables from
- * `app/globals.css` into Tailwind utility classes consumed by the @dcyfr-labs
- * registry primitives (bg-background, text-primary, ring-secure, etc.).
+ * The semantic-var bridge below maps CSS variables from `app/globals.css`
+ * into Tailwind utility classes consumed by the @dcyfr-labs registry
+ * primitives (bg-background, text-primary, ring-secure, etc.).
  *
- * Both systems coexist during Phase 1 scaffolding. The legacy preset retires
- * in Phase 2/3 once all pages migrate to semantic vars.
+ * The legacy `./tailwind.preset.ts` + its `dcyfr-primary-*` / `dcyfr-accent-*`
+ * palette was retired 2026-04-18 under openspec/changes/dcyfr-palette-class-migration
+ * (pilot). All 42 call sites migrated to semantic-var utilities via the
+ * scripts/polish-loop/palette-class-codemod.mjs sweep.
  *
  * @see docs/dcyfr-workspace/sites/dcyfr-io.md for identity
- * @see openspec/changes/dcyfr-skeleton-sites-scaffolding/spec.md §1 for the required set
  */
 const config: Config = {
-  presets: [dcyfrPreset],
   darkMode: 'class',
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',

@@ -31,17 +31,17 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
   const cardContent = (
     <div
       className={clsx(
-        'group relative flex flex-col rounded-xl border bg-dcyfr-primary-900/70 p-6',
+        'group relative flex flex-col rounded-xl border bg-card/70 p-6',
         'transition-all duration-200',
         product.available
-          ? [borderColor, 'hover:bg-dcyfr-primary-800/70 hover:shadow-lg']
-          : 'border-dcyfr-primary-700/40',
+          ? [borderColor, 'hover:bg-muted/70 hover:shadow-lg']
+          : 'border-input/40',
         featured && 'ring-1 ring-dcyfr-accent/20'
       )}
     >
       {/* Coming soon badge */}
       {!product.available && (
-        <span className="absolute right-4 top-4 rounded-full bg-dcyfr-primary-800 px-2 py-0.5 text-xs text-dcyfr-primary-300 border border-dcyfr-primary-700/60">
+        <span className="absolute right-4 top-4 rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground border border-input/60">
           Phase {product.phase}
         </span>
       )}
@@ -59,7 +59,7 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
       {/* Name + positioning */}
       <h3 className="mb-1 text-lg font-semibold text-white">{product.name}</h3>
       <p className={clsx('mb-2 text-xs font-medium', accentColor)}>{product.positioning}</p>
-      <p className="mb-5 flex-1 text-sm text-dcyfr-primary-300 leading-relaxed">
+      <p className="mb-5 flex-1 text-sm text-muted-foreground leading-relaxed">
         {product.description}
       </p>
 
@@ -78,7 +78,7 @@ export function ProductCard({ product, featured = false }: ProductCardProps) {
           </svg>
         </span>
       ) : (
-        <span className="text-sm text-dcyfr-primary-300">Coming {product.phase === 2 ? 'Q3 2026' : product.phase === 3 ? 'Q4 2026' : '2027'}</span>
+        <span className="text-sm text-muted-foreground">Coming {product.phase === 2 ? 'Q3 2026' : product.phase === 3 ? 'Q4 2026' : '2027'}</span>
       )}
     </div>
   );

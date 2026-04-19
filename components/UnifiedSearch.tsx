@@ -61,7 +61,7 @@ export function UnifiedSearch() {
     <div className="relative w-full max-w-2xl mx-auto">
       <form onSubmit={handleSubmit} role="search" aria-label="Search DCYFR products">
         <div className="relative">
-          <span className="absolute inset-y-0 left-4 flex items-center text-dcyfr-primary-400 pointer-events-none">
+          <span className="absolute inset-y-0 left-4 flex items-center text-muted-foreground pointer-events-none">
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -73,8 +73,8 @@ export function UnifiedSearch() {
             onChange={handleChange}
             placeholder="Search templates, agents, code patterns, infrastructure..."
             className={clsx(
-              'w-full rounded-xl border border-dcyfr-primary-600/60 bg-dcyfr-primary-900/60',
-              'pl-12 pr-4 py-3.5 text-white placeholder-dcyfr-primary-500',
+              'w-full rounded-xl border border-input/60 bg-card/60',
+              'pl-12 pr-4 py-3.5 text-white placeholder:text-muted-foreground',
               'focus:border-dcyfr-accent/60 focus:outline-none focus:ring-1 focus:ring-dcyfr-accent/40',
               'text-sm'
             )}
@@ -91,7 +91,7 @@ export function UnifiedSearch() {
           id="search-suggestions"
           role="listbox"
           aria-label="Search suggestions"
-          className="absolute z-20 mt-1 w-full overflow-hidden rounded-xl border border-dcyfr-primary-700/60 bg-dcyfr-primary-900 shadow-xl"
+          className="absolute z-20 mt-1 w-full overflow-hidden rounded-xl border border-input/60 bg-card shadow-xl"
         >
           {suggestions.map((s) => (
             <li key={s.destination} role="option" aria-selected={false}>
@@ -99,14 +99,14 @@ export function UnifiedSearch() {
                 href={s.destination}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between px-4 py-3 hover:bg-dcyfr-primary-800/60 transition-colors"
+                className="flex items-center justify-between px-4 py-3 hover:bg-muted/60 transition-colors"
                 onClick={() => setSuggestions([])}
               >
                 <div>
                   <p className="text-sm font-medium text-white">&ldquo;{s.label}&rdquo;</p>
-                  <p className="text-xs text-dcyfr-primary-300">{s.description}</p>
+                  <p className="text-xs text-muted-foreground">{s.description}</p>
                 </div>
-                <span className="text-xs font-mono text-dcyfr-accent-300 shrink-0 ml-4">
+                <span className="text-xs font-mono text-accent shrink-0 ml-4">
                   {s.tld}
                 </span>
               </a>

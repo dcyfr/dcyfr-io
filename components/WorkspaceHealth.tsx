@@ -30,9 +30,13 @@ async function fetchGatewayHealth(): Promise<GatewayHealth> {
 }
 
 const statusConfig: Record<HealthStatus, { label: string; dotClass: string; textClass: string }> = {
-  healthy:     { label: 'Workspace healthy',     dotClass: 'bg-green-400',         textClass: 'text-green-400' },
-  degraded:    { label: 'Workspace degraded',    dotClass: 'bg-yellow-400',        textClass: 'text-yellow-400' },
-  unavailable: { label: 'Gateway unavailable',   dotClass: 'bg-muted', textClass: 'text-muted-foreground' },
+  // Status indicators map to DCYFR semantic tokens:
+  //   healthy  → success (green)
+  //   degraded → warning (yellow)
+  //   unavailable / loading → muted (dimmed to recede from the eye)
+  healthy:     { label: 'Workspace healthy',     dotClass: 'bg-success',           textClass: 'text-success' },
+  degraded:    { label: 'Workspace degraded',    dotClass: 'bg-warning',           textClass: 'text-warning' },
+  unavailable: { label: 'Gateway unavailable',   dotClass: 'bg-muted',             textClass: 'text-muted-foreground' },
   loading:     { label: 'Checking status...',    dotClass: 'bg-muted animate-pulse', textClass: 'text-muted-foreground' },
 };
 

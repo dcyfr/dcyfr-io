@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-`dcyfr.io` is a Next.js 15 / React 19 control-center app for the DCYFR product ecosystem.
+`dcyfr.io` is a Next.js 16 / React 19 control-center app for the DCYFR product ecosystem.
 
 ## Architecture
 

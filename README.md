@@ -2,11 +2,11 @@
 
 The control center and front door for the DCYFR product ecosystem, live at **[dcyfr.io](https://dcyfr.io)**.
 
-`dcyfr.io` is a Next.js 15 / React 19 control-center app: a single-page portal that maps and links out to the rest of the dcyfr-labs site family — [dcyfr-app](https://github.com/dcyfr-labs/dcyfr-app) (templates), [dcyfr-bot](https://github.com/dcyfr-labs/dcyfr-bot) (agents), [dcyfr-build](https://github.com/dcyfr-labs/dcyfr-build) (build workflows), [dcyfr-codes](https://github.com/dcyfr-labs/dcyfr-codes) (patterns), [dcyfr-tech](https://github.com/dcyfr-labs/dcyfr-tech) (research), and [dcyfr-work](https://github.com/dcyfr-labs/dcyfr-work) (developer portal) — including an RSS carousel surfacing recent ecosystem content.
+`dcyfr.io` is a Next.js 16 / React 19 control-center app: a single-page portal that maps and links out to the rest of the dcyfr-labs site family — [dcyfr-app](https://github.com/dcyfr-labs/dcyfr-app) (templates), [dcyfr-bot](https://github.com/dcyfr-labs/dcyfr-bot) (agents), [dcyfr-build](https://github.com/dcyfr-labs/dcyfr-build) (build workflows), [dcyfr-codes](https://github.com/dcyfr-labs/dcyfr-codes) (patterns), [dcyfr-tech](https://github.com/dcyfr-labs/dcyfr-tech) (research), and [dcyfr-work](https://github.com/dcyfr-labs/dcyfr-work) (developer portal) — including an RSS carousel surfacing recent ecosystem content.
 
 ## Stack
 
-- Next.js 15 (App Router) / React 19 / Tailwind CSS
+- Next.js 16 (App Router) / React 19 / Tailwind CSS
 - shadcn primitives from the `@dcyfr-labs` registry (`registry.dcyfr.ai`); shared chrome (nav, footer, page shell, theme switcher/provider) in [`components/chrome/`](components/chrome/README.md)
 - Sentry instrumentation (client, server, and edge configs) + Vercel analytics
 - Playwright for e2e and visual-regression snapshots ([`e2e/`](e2e/README.md))
